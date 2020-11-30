@@ -6,9 +6,14 @@ A Python Socket that provides Client features Send/Receive/Disconnect
 
 ## Properties
 
- Fully implemented on multi threading.
- Events are implied that the user can register his call backs.
- Sending and Receiving are prefixed with the length of the packet.
+ 1. Fully implemented on multi threading.
+
+ 2. Events are implied that the user can register his call backs.
+
+ 3. Sending and Receiving are prefixed with the length of the packet.
+ 
+ 4. Messages are structured into [Code:Content], Where code can be string or integer representing the 
+    message type on the other hand the content is used to store the information regarding the message.
 
 ## An Example of using the ClientSocket.py
 ```python
