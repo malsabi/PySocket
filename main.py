@@ -1,4 +1,4 @@
-from ClientSocket import ClientSocket
+from Server.ServerSocket import ServerSocket
 
 
 def OnClientConnect(LogMessage):
@@ -31,17 +31,21 @@ def OnClientException(LogMessage):
 
 
 if __name__ == '__main__':
+    ServerSock = ServerSocket()
+    ServerSock.Listen(1669)
+    ServerSock.ClientAcceptor()
+    print("Server Closed")
     # Initialize our client settings
-    ClientSock = ClientSocket("127.0.0.1", 1669)
-    ClientSock.SetHeaderSize(4)  # 4 Bytes
-    ClientSock.SetMaximumMessageSize(1024 * 1024)  # 1 MB
+    # ClientSock = ClientSocket("127.0.0.1", 1669)
+    # ClientSock.SetHeaderSize(4)  # 4 Bytes
+    # ClientSock.SetMaximumMessageSize(1024 * 1024)  # 1 MB
     # Register the call back handlers
-    ClientSock.RegisterCallback(ClientSock.OnClientConnectEvent, OnClientConnect)
-    ClientSock.RegisterCallback(ClientSock.OnClientReconnectEvent, OnClientReconnect)
-    ClientSock.RegisterCallback(ClientSock.OnClientSendEvent, OnClientSend)
-    ClientSock.RegisterCallback(ClientSock.OnClientReceiveEvent, OnClientReceive)
-    ClientSock.RegisterCallback(ClientSock.OnClientDisconnectEvent, OnClientDisconnect)
-    ClientSock.RegisterCallback(ClientSock.OnClientWarningEvent, OnClientWarning)
-    ClientSock.RegisterCallback(ClientSock.OnClientExceptionEvent, OnClientException)
+    # ClientSock.RegisterCallback(ClientSock.OnClientConnectEvent, OnClientConnect)
+    # ClientSock.RegisterCallback(ClientSock.OnClientReconnectEvent, OnClientReconnect)
+    # ClientSock.RegisterCallback(ClientSock.OnClientSendEvent, OnClientSend)
+    # ClientSock.RegisterCallback(ClientSock.OnClientReceiveEvent, OnClientReceive)
+    # ClientSock.RegisterCallback(ClientSock.OnClientDisconnectEvent, OnClientDisconnect)
+    # ClientSock.RegisterCallback(ClientSock.OnClientWarningEvent, OnClientWarning)
+    # ClientSock.RegisterCallback(ClientSock.OnClientExceptionEvent, OnClientException)
     # Connect to the server
-    ClientSock.Connect()
+    # ClientSock.Connect()

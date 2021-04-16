@@ -10,7 +10,6 @@ from threading import Thread
 
 
 class ClientSocket:
-
     OnClientConnectEvent = "OnClientConnect"
     OnClientReceiveEvent = "OnClientReceive"
     OnClientSendEvent = "OnClientSend"
